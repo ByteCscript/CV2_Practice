@@ -11,7 +11,7 @@ def main():
     )
     mp_drawing = mp.solutions.drawing_utils  # Para dibujar landmarks
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture("/dev/video0")
     if not cap.isOpened():
         print("No pude abrir la cámara 😢")
         return

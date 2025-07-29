@@ -1,10 +1,16 @@
 version: "3.8"
 services:
   mano:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: mano-detector:py3.10
+    privileged: true
     devices:
       - "/dev/video0:/dev/video0"
+      - "/dev/video1:/dev/video1"
     environment:
       - DISPLAY=${DISPLAY}
     volumes:
+      - .:/app                        # monta todo tu proyecto en /app
       - /tmp/.X11-unix:/tmp/.X11-unix
