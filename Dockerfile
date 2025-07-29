@@ -3,12 +3,15 @@ FROM python:3.10-slim
 
 # 2. Actualiza e instala dependencias del sistema necesarias para OpenCV
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    libglib2.0-0 \
-    libsm6 \
-    libxrender1 \
-    libxext6 \
+  build-essential \
+  libglib2.0-0 \
+  libsm6 \
+  libxrender1 \
+  libxext6 \
+  libgl1-mesa-glx \
+  libgl1-mesa-dri \
   && rm -rf /var/lib/apt/lists/*
+
 
 # 3. Crea y fija el directorio de trabajo
 WORKDIR /app
